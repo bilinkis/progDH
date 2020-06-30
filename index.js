@@ -1,13 +1,18 @@
-var currentData = localStorage.getItem('currentData');
+var currentData;
 var div = document.querySelector("#number");
 var buttonSumar = document.querySelector("#sumar");
 var buttonRestar = document.querySelector("#restar");
 buttonSumar.onclick = sumar;
 buttonRestar.onclick = restar;
 function load(){
+  if(!localStorage.getItem('currentData')){
+    localStorage.setItem('currentData',0);
+    currentData = 0;
+}
   if (currentData == null || currentData == 0){
     div.innerHTML = 0;
     currentData = 0;
+
 
   } else{
     div.innerHTML = currentData;
